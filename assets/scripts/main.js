@@ -5,7 +5,10 @@
 const recipes = [
   'https://introweb.tech/assets/json/ghostCookies.json',
   'https://introweb.tech/assets/json/birthdayCake.json',
-  'https://introweb.tech/assets/json/chocolateChip.json'
+  'https://introweb.tech/assets/json/chocolateChip.json',
+  'assets/recipes/hamburger.json',
+  'assets/recipes/pasta-salad.json',
+  'assets/recipes/pad-thai.json'
 ];
 
 // Once all of the recipes that were specified above have been fetched, their
@@ -43,6 +46,24 @@ async function fetchRecipes() {
     // in the recipes folder and fetch them from there. You'll need to add their paths to the recipes array.
 
     // Part 1 Expose - TODO
+    
+
+   for (let i = 0; i < recipes.length; i++){
+      fetch(recipes[i])
+          .then(response => response.json())
+          .then(data => recipeData[recipes[i]] = data)
+          .then(function() {
+            if (Object.getOwnPropertyNames(recipeData).length == recipes.length){
+              resolve(true);
+              return;
+            }
+          })
+          .catch(function(error) {
+            reject(error);
+            return;
+          });
+           
+    }
   });
 }
 
@@ -54,6 +75,12 @@ function createRecipeCards() {
   // show any others you've added when the user clicks on the "Show more" button.
 
   // Part 1 Expose - TODO
+  let arr = Object.getOwnPropertyNames(recipeData);
+  for (let i = 0; i < 3; i++){
+    let toAttach = document.createElement('recipe-card');
+    toAttach.data = recipeData[arr[i]];
+    document.querySelector('main').appendChild(toAttach);
+  }
 }
 
 function bindShowMore() {
@@ -65,4 +92,23 @@ function bindShowMore() {
   // in the recipeData object where you stored them/
 
   // Part 2 Explore - TODO
+  let button = document.querySelector('button');
+  let arr = Object.getOwnPropertyNames(recipeData);
+  button.addEventListener('click', () => {
+    if (button.textContent == 'Show more'){
+      for (let i = 3; i < arr.length; i++){
+        let toAttach = document.createElement('recipe-card');
+        toAttach.data = recipeData[arr[i]];
+        document.querySelector('main').appendChild(toAttach);
+      }
+      button.textContent = 'Show less';
+    }else{
+      let cards = document.querySelector('main').childNodes;
+      for (let i = 6; i < cards.length;){
+        document.querySelector('main').removeChild(cards[i]);
+        cards = document.querySelector('main').childNodes;
+      }
+      button.textContent = 'Show more';
+    }
+  });
 }

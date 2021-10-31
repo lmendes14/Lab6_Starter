@@ -3,6 +3,8 @@ class RecipeCard extends HTMLElement {
     // Part 1 Expose - TODO
 
     // You'll want to attach the shadow DOM here
+    super();
+    this.attachShadow({mode: 'open'});
   }
 
   set data(data) {
@@ -100,6 +102,127 @@ class RecipeCard extends HTMLElement {
     // created in the constructor()
 
     // Part 1 Expose - TODO
+    
+    let img = document.createElement('img');
+    if (data.thumbnailUrl){
+      img.src = data.thumbnailUrl;
+    }
+    else if (data.image){
+      img.src = data.image;
+    }
+    if (data['@graph']){
+      for (let i = 0; i < data['@graph'].length; i++){
+        if (data['@graph'][i]['@type'] == 'ImageObject'){
+          img.src = data['@graph'][i]['url'];
+        }
+      }
+    }
+    card.appendChild(img);
+    
+    let title = document.createElement('p');
+    title.className = 'title';
+    let titleContent = document.createElement('a');
+    //titleContent.textContent = 'Title';
+    if (data.headline){
+      titleContent.textContent = data.headline;
+    }else if (data.name){
+      titleContent.textContent = data.name;
+    }
+    if (data['@graph']){
+      for (let i = 0; i < data['@graph'].length; i++){
+        if (data['@graph'][i]['@type'] == 'Article'){
+          titleContent.textContent = data['@graph'][i]['headline'];
+          img.alt = data['@graph'][i]['headline'];
+        }
+      }
+    }
+    let url = getUrl(data);
+    if (url !== null){
+      titleContent.href = url;
+    }else{
+      titleContent.href = '';
+    }
+    title.appendChild(titleContent);
+    card.appendChild(title);
+
+    let org = document.createElement('p');
+    org.className = 'organization';
+    let orgName = getOrganization(data);
+    if (orgName !== null){
+      org.textContent = orgName;
+    }
+    card.appendChild(org);
+
+    let rating = document.createElement('div');
+    rating.className = 'rating';
+    let ratingObj = searchForKey(data, 'aggregateRating');
+    if (ratingObj){
+      let ratingValue = ratingObj['ratingValue'];
+      let reviewCount = '';
+      if (ratingObj['reviewCount']){
+        reviewCount = ratingObj['reviewCount'];
+      }else{
+        reviewCount = ratingObj['ratingCount'];
+      }
+      let valueElem = document.createElement('span');
+      valueElem.textContent = ratingValue;
+      let countElem = document.createElement('span');
+      countElem.textContent = reviewCount;
+      let ratingImg = document.createElement('img');
+      let rounded = Math.round(ratingValue);
+      switch (rounded) {
+        case 5:
+          ratingImg.src = './assets/images/icons/5-star.svg';
+          ratingImg.alt = '5 stars';
+          break;
+        case 4:
+          ratingImg.src = './assets/images/icons/4-star.svg';
+          ratingImg.alt = '4 stars';
+          break;
+        case 3:
+          ratingImg.src = './assets/images/icons/3-star.svg';
+          ratingImg.alt = '3 stars';
+          break;
+        case 2:
+          ratingImg.src = './assets/images/icons/2-star.svg';
+          ratingImg.alt = '2 stars';
+          break;
+        case 1:
+          ratingImg.src = './assets/images/icons/1-star.svg';
+          ratingImg.alt = '1 star1';
+          break;
+        default:
+          ratingImg.src = './assets/images/icons/0-star.svg';
+          ratingImg.alt = '0 stars';
+          break;
+      }
+      rating.appendChild(valueElem);
+      rating.appendChild(ratingImg);
+      rating.appendChild(countElem);
+    }else{
+      let noReviews = document.createElement('span');
+      noReviews.textContent = 'No Reviews';
+      rating.appendChild(noReviews);
+    }
+    card.appendChild(rating);
+
+    let time = document.createElement('time');
+    let timeUgly = searchForKey(data, 'totalTime');
+    if (timeUgly){
+      time.textContent = convertTime(timeUgly);
+    }
+    card.appendChild(time);
+
+    let ingredients = document.createElement('p');
+    ingredients.className = 'ingredients';
+    let ingArr = searchForKey(data, 'recipeIngredient');
+    if (ingArr){
+      ingredients.textContent = createIngredientList(ingArr);
+    }
+    card.appendChild(ingredients);
+
+    this.shadowRoot.appendChild(card);
+    this.shadowRoot.appendChild(styleElem);
   }
 }
 

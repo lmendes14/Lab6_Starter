@@ -1,0 +1,262 @@
+{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://thetoastykitchen.com/#organization",
+        "name": "The Toasty Kitchen",
+        "url": "https://thetoastykitchen.com/",
+        "sameAs": [
+          "https://www.facebook.com/thetoastykitchen",
+          "https://www.instagram.com/thetoastykitchen",
+          "https://www.pinterest.com/toastykitchen/",
+          "https://twitter.com/toastykitchen"
+        ],
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://thetoastykitchen.com/#logo",
+          "inLanguage": "en-US",
+          "url": "",
+          "contentUrl": "",
+          "caption": "The Toasty Kitchen"
+        },
+        "image": {
+          "@id": "https://thetoastykitchen.com/#logo"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://thetoastykitchen.com/#website",
+        "url": "https://thetoastykitchen.com/",
+        "name": "The Toasty Kitchen",
+        "description": "Easy homemade recipes",
+        "publisher": {
+          "@id": "https://thetoastykitchen.com/#organization"
+        },
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://thetoastykitchen.com/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        ],
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://thetoastykitchen.com/classic-pasta-salad/#primaryimage",
+        "inLanguage": "en-US",
+        "url": "https://thetoastykitchen.com/wp-content/uploads/2020/02/classic-pasta-salad-feat.jpg",
+        "contentUrl": "https://thetoastykitchen.com/wp-content/uploads/2020/02/classic-pasta-salad-feat.jpg",
+        "width": 800,
+        "height": 800,
+        "caption": "Classic pasta salad recipe."
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://thetoastykitchen.com/classic-pasta-salad/#webpage",
+        "url": "https://thetoastykitchen.com/classic-pasta-salad/",
+        "name": "Classic Pasta Salad (for a crowd) - The Toasty Kitchen",
+        "isPartOf": {
+          "@id": "https://thetoastykitchen.com/#website"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://thetoastykitchen.com/classic-pasta-salad/#primaryimage"
+        },
+        "datePublished": "2019-03-31T13:30:25+00:00",
+        "dateModified": "2021-08-09T18:40:41+00:00",
+        "description": "This classic pasta salad is made with tri-color rotini, vegetables and cheeses, and coated in a scratch-made vinaigrette. Enough to feed a crowd!",
+        "breadcrumb": {
+          "@id": "https://thetoastykitchen.com/classic-pasta-salad/#breadcrumb"
+        },
+        "inLanguage": "en-US",
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://thetoastykitchen.com/classic-pasta-salad/"
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://thetoastykitchen.com/classic-pasta-salad/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Pasta",
+            "item": "https://thetoastykitchen.com/pasta/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Classic Pasta Salad (for a crowd)"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://thetoastykitchen.com/classic-pasta-salad/#article",
+        "isPartOf": {
+          "@id": "https://thetoastykitchen.com/classic-pasta-salad/#webpage"
+        },
+        "author": {
+          "@id": "https://thetoastykitchen.com/#/schema/person/92fde312ed164515ea9805007afbcf55"
+        },
+        "headline": "Classic Pasta Salad (for a crowd)",
+        "datePublished": "2019-03-31T13:30:25+00:00",
+        "dateModified": "2021-08-09T18:40:41+00:00",
+        "wordCount": 707,
+        "commentCount": 22,
+        "publisher": {
+          "@id": "https://thetoastykitchen.com/#organization"
+        },
+        "image": {
+          "@id": "https://thetoastykitchen.com/classic-pasta-salad/#primaryimage"
+        },
+        "thumbnailUrl": "https://thetoastykitchen.com/wp-content/uploads/2020/02/classic-pasta-salad-feat.jpg",
+        "articleSection": [
+          "Pasta",
+          "Popular",
+          "Side Dishes",
+          "Summer Recipes"
+        ],
+        "inLanguage": "en-US",
+        "potentialAction": [
+          {
+            "@type": "CommentAction",
+            "name": "Comment",
+            "target": [
+              "https://thetoastykitchen.com/classic-pasta-salad/#respond"
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://thetoastykitchen.com/#/schema/person/92fde312ed164515ea9805007afbcf55",
+        "name": "Heather",
+        "image": {
+          "@type": "ImageObject",
+          "@id": "https://thetoastykitchen.com/#personlogo",
+          "inLanguage": "en-US",
+          "url": "https://secure.gravatar.com/avatar/2e174bd201983b9e9745095c75003e3b?s=96&d=blank&r=g",
+          "contentUrl": "https://secure.gravatar.com/avatar/2e174bd201983b9e9745095c75003e3b?s=96&d=blank&r=g",
+          "caption": "Heather"
+        },
+        "sameAs": [
+          "https://www.thetoastykitchen.com/about/"
+        ]
+      },
+      {
+        "@context": "http://schema.org/",
+        "@type": "Recipe",
+        "name": "Classic Pasta Salad (for a crowd)",
+        "author": {
+          "@type": "Person",
+          "name": "Heather"
+        },
+        "description": "This classic pasta salad is made with a tri-color rotini, filled with vegetables and cheeses, and coated in a scratch-made vinaigrette. The perfect recipe to feed a crowd.",
+        "datePublished": "2019-03-31T09:30:25+00:00",
+        "image": [
+          "https://thetoastykitchen.com/wp-content/uploads/2019/03/classic-pasta-salad-toasty-kitchen-3.jpg",
+          "https://thetoastykitchen.com/wp-content/uploads/2019/03/classic-pasta-salad-toasty-kitchen-3-500x500.jpg",
+          "https://thetoastykitchen.com/wp-content/uploads/2019/03/classic-pasta-salad-toasty-kitchen-3-500x375.jpg",
+          "https://thetoastykitchen.com/wp-content/uploads/2019/03/classic-pasta-salad-toasty-kitchen-3-480x270.jpg"
+        ],
+        "video": {
+          "name": "Classic Pasta Salad",
+          "description": "This classic pasta salad is made with a tri-color rotini, filled with vegetables and cheeses, and coated in a scratch-made vinaigrette. The perfect recipe to feed a crowd.",
+          "thumbnailUrl": "https://mediavine-res.cloudinary.com/video/upload/s--rPJVHeJI--/c_limit,f_auto,fl_lossy,h_1080,q_auto,w_1920/v1607104580/z9gwxwdq5r8a9bxec9vp.jpg",
+          "contentUrl": "https://embed.mediavine.com/videos/z9gwxwdq5r8a9bxec9vp",
+          "uploadDate": "2020-12-04T17:57:07+00:00",
+          "duration": "PT90S",
+          "@type": "VideoObject"
+        },
+        "recipeYield": [
+          "24",
+          "24 servings"
+        ],
+        "prepTime": "PT25M",
+        "totalTime": "PT25M",
+        "recipeIngredient": [
+          "24 ounces tri-color rotini pasta (uncooked)",
+          "1 pint cherry tomatoes (halved)",
+          "12 ounces sliced pepperoni",
+          "1  red onion (diced)",
+          "1  green bell pepper (diced)",
+          "16 ounces mozzarella cheese (cubed)",
+          "1 cup grated parmesan cheese",
+          "8 ounces olives (sliced)",
+          "1 1/2 cups olive oil",
+          "1/2 cup red wine vinegar",
+          "2 tablespoons Italian seasoning",
+          "2 teaspoons garlic powder",
+          "1 1/2 teaspoons salt",
+          "1 teaspoon pepper",
+          "1/2 teaspoon red pepper flakes"
+        ],
+        "recipeInstructions": [
+          {
+            "@type": "HowToStep",
+            "text": "Cook pasta according to package directions for al dente pasta. Drain and rinse with cold water until pasta is room temperature. Place pasta in a large bowl.",
+            "name": "Cook pasta according to package directions for al dente pasta. Drain and rinse with cold water until pasta is room temperature. Place pasta in a large bowl.",
+            "url": "https://thetoastykitchen.com/classic-pasta-salad/#wprm-recipe-5061-step-0-0"
+          },
+          {
+            "@type": "HowToStep",
+            "text": "Add cherry tomatoes, pepperoni, onion, bell pepper, mozzarella, parmesan, and olives to the bowl. Set aside. ",
+            "name": "Add cherry tomatoes, pepperoni, onion, bell pepper, mozzarella, parmesan, and olives to the bowl. Set aside. ",
+            "url": "https://thetoastykitchen.com/classic-pasta-salad/#wprm-recipe-5061-step-0-1"
+          },
+          {
+            "@type": "HowToStep",
+            "text": "In a separate bowl, add olive oil, vinegar, italian seasoning, garlic powder, salt, pepper, and red pepper flakes. Stir to combine.&nbsp;",
+            "name": "In a separate bowl, add olive oil, vinegar, italian seasoning, garlic powder, salt, pepper, and red pepper flakes. Stir to combine.&nbsp;",
+            "url": "https://thetoastykitchen.com/classic-pasta-salad/#wprm-recipe-5061-step-0-2"
+          },
+          {
+            "@type": "HowToStep",
+            "text": "Pour vinaigrette over pasta salad, then toss to coat. Refrigerate for 1 hour before serving. Pasta salad will keep for 3-4 days, refrigerated in a sealed container. Pasta WILL continue to soak up the dressing the longer it sits, so it may need a splash of olive oil and vinegar if it has been sitting for several hours.",
+            "name": "Pour vinaigrette over pasta salad, then toss to coat. Refrigerate for 1 hour before serving. Pasta salad will keep for 3-4 days, refrigerated in a sealed container. Pasta WILL continue to soak up the dressing the longer it sits, so it may need a splash of olive oil and vinegar if it has been sitting for several hours.",
+            "url": "https://thetoastykitchen.com/classic-pasta-salad/#wprm-recipe-5061-step-0-3"
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.92",
+          "ratingCount": "139"
+        },
+        "recipeCategory": [
+          "Side Dish"
+        ],
+        "recipeCuisine": [
+          "American"
+        ],
+        "keywords": "classic pasta salad",
+        "nutrition": {
+          "@type": "NutritionInformation",
+          "servingSize": "0.75 cup",
+          "calories": "283 kcal",
+          "carbohydrateContent": "24 g",
+          "proteinContent": "13 g",
+          "fatContent": "14 g",
+          "saturatedFatContent": "5 g",
+          "cholesterolContent": "32 mg",
+          "sodiumContent": "732 mg",
+          "fiberContent": "1 g",
+          "sugarContent": "1 g"
+        },
+        "@id": "https://thetoastykitchen.com/classic-pasta-salad/#recipe",
+        "isPartOf": {
+          "@id": "https://thetoastykitchen.com/classic-pasta-salad/#article"
+        },
+        "mainEntityOfPage": "https://thetoastykitchen.com/classic-pasta-salad/#webpage"
+      }
+    ]
+  }
